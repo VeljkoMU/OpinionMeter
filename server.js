@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose= require("mongoose");
 const PostModel = require("./models/post-model.js");
+const userRouter = require("./routers/user-router.js");
+const postsRouter = require("./routers/posts-router.js");
 
 
 const app = express();
@@ -52,7 +54,8 @@ app.get("/test3", (req, res)=>{
    // console.log(m);
 });
 
-
+app.use("/userdata",userRouter);
+app.use("/", postsRouter);
 
 
 app.listen(5500);

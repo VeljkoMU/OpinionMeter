@@ -35,3 +35,5 @@ postsRouter.post("/rate", (req, res)=>{
 postsRouter.delete("/deletePost", (req, res)=>{
     // Ovo radi sata, dobices u body _id posta koji treba da se brises
 });
+
+module.exports = postsRouter;
