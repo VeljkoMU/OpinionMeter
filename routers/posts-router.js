@@ -1,5 +1,6 @@
 const express= require("express");
 const mongoose = require("mongoose");
+const PostModel = require("../models/post-model.js");
 const PostsModel = require("../models/post-model.js");
 
 const postsRouter = express.Router();
@@ -28,8 +29,25 @@ postsRouter.post("/addComment", (req, res)=>{
     // Pogledaj server.js funkciju /test2, ja sam to tu probao ali nece tako
 });
 
-postsRouter.post("/rate", (req, res)=>{
-    // Ovo radi Veki
+postsRouter.post("/rate", async (req, res)=>{
+    let id = req.body._id;
+    let isPositive = req.body.isPositive;
+
+    console.log(id);
+
+    let post = await PostModel.findById(id);
+    if(!post){
+        res.status(404).end();
+        return;
+    }
+
+    if(isPositive)
+        post.approvals = post.approvals+1;
+    else
+        post.disapprovals = post.disapprovals+1;
+
+    post.save();
+    res.status(500).end();
 });
 
 postsRouter.delete("/deletePost", (req, res)=>{
