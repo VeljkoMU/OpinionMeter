@@ -1,0 +1,14 @@
+Repozitorijum: https://github.com/VeljkoMU/OpinionMeter
+
+Uputstvo:
+Korak1: Pokrenuti MongoDB instancu i kreirati bazu pod nazivom bazaproj3
+Korak2: Otvoriti bekend folder u VS Code-u i izvrsiti npm install
+Korak3: Pokrenuti bekend sa node serve.js
+Korak4: Otvoriti frontend folder u VS Code-u i izvrsiti npm install
+Korak5: Pokrenuti angular frontend sa ng serve -o
+Korak6: Aplikacija je pokrenuta!
+
+NAPOMENA!
+U folderu bekend/models se nalaze mongoose modeli koji modeluju strukturu dokumentata
+u MongoDB bazi, kao i informaije o nazivima kolekcije gde se oni cuvaju i o indeksima
+definisanim nad tim podacima, ovo je najvazniji deo projekta.
