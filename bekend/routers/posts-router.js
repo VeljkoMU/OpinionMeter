@@ -9,23 +9,17 @@ postsRouter.get("/getPostsByTag", (req, res)=>{
 	
 	PostModel.find({ tag: req.query.tag},(error,data)=>{
 		if(error){
-			//nesto
+			res.json(data);
 		}else{
 			res.json(data);
 		}
 	})
-    // Ovo radi Tina
-    // Imaces u query stringu tag=nesto
-    //Za obe tvoej funkcije osim sto tereba da se vrate svi pdoaci defenisani u PostModel, ukljucujuci i niz komentara, treab da
-    //Vratis i _id koji ti se vrati iz baze, cisto da napomenem da vodis racuna o tome
 });
 
 postsRouter.get("/getPostsFromuser", (req, res)=>{
-    //Ovo radi Tina
-    // Imaces u query stringu user = nesto
     PostModel.find({ user: req.query.user},(error,data)=>{
 		if(error){
-			//nesto
+			res.status(500).end();
 		}else{
 			res.json(data);
 		}
@@ -33,8 +27,7 @@ postsRouter.get("/getPostsFromuser", (req, res)=>{
 });
 
 postsRouter.post("/addPost", async (req, res)=>{
-    // Ovo radi Sara, ti narpavi da radi za bilo kog usera samo gledaj kako je definisano u modelu
-    // A kasnije cemo da vidimo oko autorizacije sta cemo
+
     let user = req.body.user;
     let postText = req.body.post;
     let tag = req.body.tag;
@@ -54,10 +47,6 @@ postsRouter.post("/addPost", async (req, res)=>{
 });
 
 postsRouter.post("/addComment", async (req, res)=>{
-    // U bodiju ces da imas pored user i commentText, to je za komentar sta treba
-    // Imaces i _id od posta u koji dodajes taj komentar
-    // Treba da nadjes nacin da dodas komentar u liostu komentara u post
-    // Pogledaj server.js funkciju /test2, ja sam to tu probao ali nece tako
 
     let id = req.body._id;
     let user = req.body.user;
@@ -101,8 +90,7 @@ postsRouter.post("/rate", async (req, res)=>{
 });
 
 postsRouter.delete("/deletePost", (req, res)=>{
-    // Ovo radi sata, dobices u body _id posta koji treba da se brises
-    let id = req.body._id;
+    let id = req.query._id;
 
     PostModel.findByIdAndRemove(id, err =>{
         if(err)

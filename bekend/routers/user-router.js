@@ -6,7 +6,6 @@ const md5 = require("md5");
 const userRouter = express.Router();
 
 userRouter.post("/register", (req, res)=>{
-    // ovo radi veki
 
     let username = req.body.username;
     let password = md5(req.body.password);
@@ -22,12 +21,15 @@ userRouter.post("/register", (req, res)=>{
             username: username,
             password: password
         }).then(()=>res.status(200).end())
-        .catch(()=>res.status(500).end());
+        .catch((r)=>{
+            console.log(r);
+        })
+
+        res.status(200).end();
     });
 });
 
 userRouter.post("/login", (req, res)=>{
-    //ovo isto radi veki
     let username = req.body.username;
     let password = md5(req.body.password);
 
