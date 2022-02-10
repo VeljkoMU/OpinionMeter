@@ -1,0 +1,8 @@
+<div class="container" *ngIf="visible">
+    <div class="text">
+        {{this.post?.text}}
+    </div>
+    <div>
+        <button class="delete" (click)="delete()">DELETE</button>
+    </div>
+</div>

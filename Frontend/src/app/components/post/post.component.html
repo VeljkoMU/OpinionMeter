@@ -1,0 +1,27 @@
+<div class="main-container">
+    <div class="data">
+        <p class="user">{{this.post?.user}}</p>
+        <p class="text">{{this.post?.text}}</p>
+    </div>
+    <div>
+        <a href="{{this.post?.link}}">Soure Link</a>
+    </div>
+    <div class="status">
+    <div class="vote g">
+        <p>{{this.post?.approvals}}</p>
+        <button *ngIf="notVoted" class="like" (click)="like()">LIKE</button>
+    </div>
+    <div class="vote r">
+        <p>{{this.post?.disapprovals}}</p>
+        <button *ngIf="notVoted" class="dislike" (click)="dislike()">DISLIKE</button>
+    </div>
+    </div>
+    <div>
+        <app-comment *ngFor="let c of this.post?.comments" [comment]="c"></app-comment>
+    </div>
+    <div class="c">
+        comment:
+        <textarea rows="4" cols="50" [(ngModel)]="this.localComment"></textarea>
+        <button class="button" (click)="addComment()">Comment</button>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+.base-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.menu{
+    width: 40%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    border-bottom: 5px solid white;
+    margin-bottom: 15px;
+}
+
+.menu div{
+    height: 30px;
+    padding:5px;
+    padding-bottom: 0;
+    border-bottom: 5px solid white;
+    justify-items: center;
+    transition: ease-in 0.3s;
+}
+
+.menu div:hover{
+    color: red;
+    border-color: red;
+}
+
+.is-selected{
+    color: red;
+    border-color: red;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 40%;
+    background-color: rgba(199, 199, 199, 0.274);
+}

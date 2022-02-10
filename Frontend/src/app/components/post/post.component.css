@@ -1,0 +1,79 @@
+.main-container{
+    width: 100%;
+    padding:15px;
+    background-color: rgba(95, 94, 94, 0.452);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top:20px;
+    transition: ease-in-out 0.5s;
+}
+
+.main-container:hover{
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
+.user{
+    color:rgb(161, 159, 159);
+    font-size: small;
+}
+
+.text{
+    font-size: larger;
+}
+
+.status{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+.vote{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 50px;
+    width: 40%;
+    align-items: center;
+}
+
+.vote button{
+    height: 30px;
+    width: 50px;
+}
+
+.dislike{
+    border: 1px solid red;
+    color: red;
+    background-color: rgba(95, 94, 94, 0.452);
+}
+
+.dislike:hover{
+    border: none;
+    color: black;
+    background-color: red;
+}
+
+.like{
+    background-color: rgba(95, 94, 94, 0.452);
+    border: 1px solid green;
+    color:green;
+}
+
+.like:hover{
+    background-color: green;
+    color:white;
+}
+
+.g{
+    color: rgb(86, 255, 86);
+}
+
+.r{
+    color: rgb(255, 88, 88);
+}
+
+.c{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

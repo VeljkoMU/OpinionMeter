@@ -1,0 +1,26 @@
+<div class="base-container">
+    <div class='menu'>
+        <div (click)="setState(1)"
+        [ngClass]="{'is-selected': !isRegister}">
+            SIGN IN
+        </div>
+        <div (click)="setState(2)"
+        [ngClass]="{'is-selected': isRegister}">
+            SIGN UP
+        </div>
+    </div>
+    <div *ngIf="!isRegister" class="form">
+        <label>Username: </label>
+        <input [(ngModel)]="username">
+        <label>Password: </label>
+        <input [(ngModel)]="pass">
+        <button (click)="login()">Login</button>
+    </div>
+    <div *ngIf="isRegister" class="form">
+        <label>Username: </label>
+        <input [(ngModel)]="username">
+        <label>Password: </label>
+        <input [(ngModel)]="pass">
+        <button (click)="register()">Register</button>
+    </div>
+</div>>
