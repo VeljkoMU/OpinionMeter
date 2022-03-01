@@ -27,7 +27,16 @@ body{
 }
 
 .button:hover{
-    border: none;
     background-color: white;
     color:black;
+}
+
+.upvotes{
+    background-color:green;
+    height: 100%;
+}
+
+.downvotes{
+    background-color: red;
+    height: 100%;
 }

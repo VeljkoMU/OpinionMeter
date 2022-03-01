@@ -1,0 +1,7 @@
+<div class="main">
+    {{positive}} <div class="long-bar">
+        <div class="upvotes" [ngStyle]="{'width': (this.pos/(this.neg+this.pos))*100 + '%'}"></div>
+        <div class="downvotes" [ngStyle]="{'width': (this.neg/(this.neg+this.pos))*100 + '%'}"></div>
+    </div>
+    {{negative}}
+</div>

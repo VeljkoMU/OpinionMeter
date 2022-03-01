@@ -14,6 +14,10 @@ export class UserAuthorizationComponent implements OnInit {
 
   public username: string = "";
   public pass: string = "";
+  public gender: string = "";
+  public region: string = "";
+  public education: string = "";
+  public employment: string ="";
 
   constructor(private authServise: UserDataManagerService,
               private uiService: UIService) { }
@@ -29,7 +33,7 @@ export class UserAuthorizationComponent implements OnInit {
   }
 
   public register(){
-    this.authServise.register(this.pass, this.username).subscribe((res: any)=>{
+    this.authServise.register(this.pass, this.username, this.gender, this.education, this.employment, this.region).subscribe((res: any)=>{
       if(res.status){
         this.uiService.gotoMain();
       }

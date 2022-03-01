@@ -1,10 +1,16 @@
 export interface Post{
     _id: string,
     user: String,
-    approvals: number,
-    disapprovals: number,
+    approvals:  {
+        [key: string]: string
+    },
+    disapprovals:  {
+        [key: string]: string
+    }
+    ,
     comments: Array<any>,
     text: String,
     link: String,
-    tag: String
+    tag: String,
+    votedOnBy: []
 }

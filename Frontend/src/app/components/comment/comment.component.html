@@ -5,4 +5,16 @@
     <div>
         <p>{{this.comment.commentText}}</p>
     </div>
-</div>>
+    <div class="votes">
+        <div class="up">
+            {{this.comment.upvoteCounter}}
+        </div>
+        <div class="down">
+            {{this.comment.downvoteCounter}}
+        </div>
+        <div>
+            <button (click)="vote(true)" class="up button">UPVOTE</button>
+            <button (click)="vote(false)" class="down button">DOWNVOTE</button>
+        </div>
+</div>
+</div>

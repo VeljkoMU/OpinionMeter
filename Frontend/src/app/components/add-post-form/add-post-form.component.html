@@ -1,12 +1,15 @@
 <div class="container" *ngIf="!done">
     Share you opinion:
     <textarea rows="4" cols="50" [(ngModel)]="this.postText"></textarea>
+    <div>
+    Select a tag:
     <select [(ngModel)]="this.tag">
         <option value="general">general</option>
         <option value="politics">politics</option>
         <option value="philosphy">philosphy</option>
         <option value="personal">personal</option>
     </select>
+    </div>
     <div>
         Source (add a url to a source that supports your opinion):
         <input [(ngModel)]="this.link">

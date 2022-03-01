@@ -10,3 +10,28 @@
     color:rgb(161, 159, 159);
     font-size: small;
 }
+
+.up{
+    color: green;
+}
+
+.down{
+    color:red;
+}
+
+.button.down{
+    border: 1px solid red;
+    padding: 5px;
+    font-size: medium;
+}
+
+.button.up{
+    border: 1px solid green;
+    padding: 5px;
+    font-size: medium;
+}
+.votes{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}

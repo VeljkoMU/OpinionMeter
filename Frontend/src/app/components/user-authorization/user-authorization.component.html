@@ -14,13 +14,43 @@
         <input [(ngModel)]="username">
         <label>Password: </label>
         <input [(ngModel)]="pass">
-        <button (click)="login()">Login</button>
+        <button class="button" (click)="login()">Login</button>
     </div>
     <div *ngIf="isRegister" class="form">
         <label>Username: </label>
         <input [(ngModel)]="username">
         <label>Password: </label>
         <input [(ngModel)]="pass">
-        <button (click)="register()">Register</button>
+        <label>Gender:</label>
+        <select [(ngModel)] = "gender">
+            <option value= "male">Male</option>
+            <option value = "female">Female</option>
+            <option value = "other">Non-Binary/Other</option>
+        </select>
+        <label>Education:</label>
+        <select [(ngModel)] = "education">
+            <option value="littlenone">No Formal Education</option>
+            <option value="highschool">HighSchool Degree</option>
+            <option value="bachelors">Bachelors Degree</option>
+            <option value="masters">Masters Degree</option>
+            <option value="phd">PhD</option>
+        </select>
+        <label>Employment:</label>
+        <select [(ngModel)] = "employment">
+            <option value="unemployed">Unemployed</option>
+            <option value="employed">Employed</option>
+            <option value="parttime">Part-Time</option>
+            <option value="entrepreneur">Self-Employed/Entrepreneur</option>
+        </select>
+        <label>Region:</label>
+        <select [(ngModel)] = "region">
+            <option value="europe">Europe</option>
+            <option value="fareast">East Asia</option>
+            <option value="middleeast">Middle East</option>
+            <option value="africa">Africa</option>
+            <option value="namerica">North America</option>
+            <option value="samerica">Latin America</option>
+        </select>
+        <button class="button" (click)="register()">Create Account</button>
     </div>
 </div>>

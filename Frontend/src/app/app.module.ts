@@ -12,6 +12,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { AddPostFormComponent } from './components/add-post-form/add-post-form.component';
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
 import { UserControlPostComponent } from './components/user-control-post/user-control-post.component';
+import { VotesMeterComponent } from './components/votes-meter/votes-meter.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserControlPostComponent } from './components/user-control-post/user-co
     CommentComponent,
     AddPostFormComponent,
     UserPostsComponent,
-    UserControlPostComponent
+    UserControlPostComponent,
+    VotesMeterComponent
   ],
   imports: [
     BrowserModule,

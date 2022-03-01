@@ -18,6 +18,7 @@ export class AddPostFormComponent implements OnInit {
               private postService: PostServiceService) { }
 
   ngOnInit(): void {
+    this.done=false;
   }
 
   public add(){

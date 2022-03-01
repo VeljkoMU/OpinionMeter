@@ -5,9 +5,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top:20px;
+    margin:20px;
     transition: ease-in-out 0.5s;
+    margin-top: 0;
 }
+
 
 .main-container:hover{
     background-color: rgba(0, 0, 0, 0.459);
@@ -31,14 +33,15 @@
 .vote{
     display: flex;
     justify-content: space-around;
-    margin-left: 50px;
-    width: 40%;
+    width: 100%;
     align-items: center;
 }
 
 .vote button{
-    height: 30px;
-    width: 50px;
+    height: 40px;
+    width: 100px;
+    margin: 5px;
+    transition: ease-in-out 0.5s;
 }
 
 .dislike{
@@ -76,4 +79,45 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.bar{
+    width: 150px;
+    height: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stats{
+    border-top: 1px solid white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.menu{
+    height: 30px;
+    border-bottom: 5px solid white;
+    justify-items: center;
+    transition: ease-in 0.3s;
+}
+
+.menu:hover{
+    color: red;
+    border-color: red;
+    cursor:pointer;
+}
+
+.subheader{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin: 20px;
+    margin-bottom: 0;
+    padding: 15px;
+    padding-bottom: 0;
+    background-color: rgba(95, 94, 94, 0.452);
 }

@@ -1,4 +1,7 @@
 export interface Comment{
+    _id: string,
     user: String,
-    commentText: string
+    commentText: string,
+    upvoteCounter: number,
+    downvoteCounter:number
 }

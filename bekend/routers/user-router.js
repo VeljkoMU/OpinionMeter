@@ -2,6 +2,7 @@ const express= require("express");
 const mongoose = require("mongoose");
 const UserModel = require("../models/user-model.js");
 const md5 = require("md5");
+const PostModel = require("../models/post-model.js");
 
 const userRouter = express.Router();
 
@@ -19,13 +20,16 @@ userRouter.post("/register", (req, res)=>{
 
         UserModel.create({
             username: username,
-            password: password
+            password: password,
+            gender: req.body.gender,
+            education: req.body.edu,
+            employment: req.body.emp,
+            region: req.body.region
         }).then(()=>res.status(200).end())
-        .catch((r)=>{
-            console.log(r);
+        .catch((err)=>{
+            console.log(err);
+            res.status(500).end();
         })
-
-        res.status(200).end();
     });
 });
 
@@ -44,7 +48,29 @@ userRouter.post("/login", (req, res)=>{
             res.status(200).end();
             return;
         }
-        res.status(500).end();
+        res.status(405).end();
+    });
+});
+
+userRouter.delete("/delete", async (req, res)=>{
+    let username = req.body.username;
+
+    PostModel.deleteMany({user: username}, (err)=>{
+        if(err){
+            console.log(err);
+            res.status(500).end();
+            return;
+        }
+
+        UserModel.deleteOne({username: username}, (err)=>{
+            if(err){
+                console.log(err);
+                res.status(500).end();
+                return;
+            }
+
+            res.status(200).end();
+        });
     });
 });
 
