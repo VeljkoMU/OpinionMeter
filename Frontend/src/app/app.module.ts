@@ -13,6 +13,7 @@ import { AddPostFormComponent } from './components/add-post-form/add-post-form.c
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
 import { UserControlPostComponent } from './components/user-control-post/user-control-post.component';
 import { VotesMeterComponent } from './components/votes-meter/votes-meter.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VotesMeterComponent } from './components/votes-meter/votes-meter.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

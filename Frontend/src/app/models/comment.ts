@@ -3,5 +3,6 @@ export interface Comment{
     user: String,
     commentText: string,
     upvoteCounter: number,
-    downvoteCounter:number
+    downvoteCounter:number,
+    votedOnBy: []
 }

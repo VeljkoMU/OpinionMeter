@@ -15,8 +15,18 @@
     color: green;
 }
 
+.up:hover{
+    background-color: green;
+    color: black;
+}
+
 .down{
     color:red;
+}
+
+.down:hover{
+    background-color: red;
+    color: black;
 }
 
 .button.down{

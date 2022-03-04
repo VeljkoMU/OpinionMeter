@@ -5,19 +5,36 @@ const PostModel = require("../models/post-model.js");
 const { findById } = require("../models/post-model.js");
 const PostsModel = require("../models/post-model.js");
 const UserModel = require("../models/user-model.js");
+const redisClient = require("../redis-client.js");
 
 const postsRouter = express.Router();
 
 postsRouter.get("/getPostsByTag", (req, res)=>{
+    
+    redisClient.lrange(req.query.tag, 0, -1, (err, cdata)=>{
+        console.log(cdata);
+        if(true){
+            PostModel.find({ tag: req.query.tag},(error,data)=>{
+                if(error){
+                    console.log(error);
+                    res.status(500).end();
+                }
+                else{
+                    //console.log(JSON.stringify(data));
+                    redisClient.lpush(req.query.tag, JSON.stringify(data));
+                    redisClient.expire(req.query.tag, 60 * 2);
+                    res.json(data).end();
+                    console.log("miss");
+                }
+            });
+        }
+        else{
+            res.json(JSON.parse(cdata));
+            console.log("hit");
+        }
+    });
 	
-	PostModel.find({ tag: req.query.tag},(error,data)=>{
-		if(error){
-            console.log(error);
-			res.status(500).end();
-		}else{
-			res.json(data);
-		}
-	})
+	
 });
 
 postsRouter.get("/getPostsFromuser", (req, res)=>{
@@ -53,7 +70,7 @@ postsRouter.post("/addPost", async (req, res)=>{
             "masters": 0,
             "phd": 0,
             "europe": 0,
-            "middlewast": 0,
+            "middleeast": 0,
             "eastasia": 0,
             "namerica": 0,
             "samerica":0,
@@ -66,6 +83,7 @@ postsRouter.post("/addPost", async (req, res)=>{
                 "other": 0,
                 "unemployed": 0,
                 "employed": 0,
+                "parttime": 0,
                 "entrepreneur": 0,
                 "littlenone": 0,
                 "highschool": 0,
@@ -73,7 +91,7 @@ postsRouter.post("/addPost", async (req, res)=>{
                 "masters": 0,
                 "phd": 0,
                 "europe": 0,
-                "middlewast": 0,
+                "middleeast": 0,
                 "eastasia": 0,
                 "namerica": 0,
                 "samerica":0,

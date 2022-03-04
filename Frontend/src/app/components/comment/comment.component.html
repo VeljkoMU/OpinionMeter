@@ -12,9 +12,9 @@
         <div class="down">
             {{this.comment.downvoteCounter}}
         </div>
-        <div>
-            <button (click)="vote(true)" class="up button">UPVOTE</button>
-            <button (click)="vote(false)" class="down button">DOWNVOTE</button>
+        <div *ngIf="!voted">
+            <button (click)="vote(true)" class="up button">↑</button>
+            <button (click)="vote(false)" class="down button">↓</button>
         </div>
 </div>
 </div>

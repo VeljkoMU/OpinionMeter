@@ -59,7 +59,8 @@ export class PostComponent implements OnInit {
         commentText: this.localComment,
         user: this.userData.username,
         upvoteCounter: 0,
-        downvoteCounter: 0
+        downvoteCounter: 0,
+        votedOnBy: []
       }
       if(this.post){
         this.post.comments.push(comment);
@@ -100,7 +101,7 @@ export class PostComponent implements OnInit {
       
       let keys = Object.keys(educationAsocArray);
       keys.sort((a,b)=>educationAsocArray[a]-educationAsocArray[b]);
-      let top = keys.splice(0,1);
+      let top = keys[keys.length-1];
 
       this.mostApporvedProfile+= " " + top;
 
@@ -111,11 +112,14 @@ export class PostComponent implements OnInit {
         "Masters Degree": this.post.disapprovals['masters'],
         "PhD": this.post.disapprovals['phd']
       }
+
+      console.log(educationAsocArray);
+      
       
       keys = Object.keys(educationAsocArray);
       keys.sort((a,b)=>educationAsocArray[a]-educationAsocArray[b]);
-      top = keys.splice(0,1);
-
+      top = keys[keys.length-1];
+      console.log(keys);
       this.mostDisagreedProfile+= " " + top;
 
       //By employment
@@ -129,7 +133,7 @@ export class PostComponent implements OnInit {
 
       keys = Object.keys(employmentAsocArray);
       keys.sort((a,b)=>employmentAsocArray[a]-employmentAsocArray[b]);
-      top = keys.splice(0,1);
+      top = keys[keys.length-1];
 
       this.mostApporvedProfile+= " " + top;
 
@@ -142,7 +146,11 @@ export class PostComponent implements OnInit {
 
       keys = Object.keys(employmentAsocArray);
       keys.sort((a,b)=>employmentAsocArray[a]-employmentAsocArray[b]);
-      top = keys.splice(0,1);
+      top = keys[keys.length-1];
+
+      console.log(employmentAsocArray);
+
+      console.log(keys);
 
       this.mostDisagreedProfile+= " " + top;
 
@@ -152,13 +160,13 @@ export class PostComponent implements OnInit {
         "From Europe": this.post.approvals['europe'],
         "From The Middle East": this.post.approvals['middleeast'],
         "From Africa": this.post.approvals['africa'],
-        "From East Asia": this.post.approvals['fareast'],
+        "From East Asia": this.post.approvals['eastasia'],
         "From North America": this.post.approvals['namerica'],
         "From Latin America": this.post.approvals['samerica']
       }
       keys = Object.keys(regionAsocArray);
       keys.sort((a,b)=>regionAsocArray[a]-regionAsocArray[b]);
-      top = keys.splice(0,1);
+      top = keys[keys.length-1];
 
       this.mostApporvedProfile+= " " + top;
 
@@ -166,13 +174,13 @@ export class PostComponent implements OnInit {
         "From Europe": this.post.disapprovals['europe'],
         "From The Middle East": this.post.disapprovals['middleeast'],
         "From Africa": this.post.disapprovals['africa'],
-        "From East Asia": this.post.disapprovals['fareast'],
+        "From East Asia": this.post.disapprovals['eastasia'],
         "From North America": this.post.disapprovals['namerica'],
         "From Latin America": this.post.disapprovals['samerica']
       }
       keys = Object.keys(regionAsocArray);
       keys.sort((a,b)=>regionAsocArray[a]-regionAsocArray[b]);
-      top = keys.splice(0,1);
+      top = keys[keys.length-1];
 
       this.mostDisagreedProfile+= " " + top;
     }
