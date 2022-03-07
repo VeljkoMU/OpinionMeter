@@ -13,23 +13,23 @@
         <label>Username: </label>
         <input [(ngModel)]="username">
         <label>Password: </label>
-        <input [(ngModel)]="pass">
+        <input [(ngModel)]="pass" type="password">
         <button class="button" (click)="login()">Login</button>
     </div>
     <div *ngIf="isRegister" class="form">
         <label>Username: </label>
         <input [(ngModel)]="username">
         <label>Password: </label>
-        <input [(ngModel)]="pass">
+        <input [(ngModel)]="pass" type="password">
         <label>Gender:</label>
         <select [(ngModel)] = "gender">
-            <option value= "male">Male</option>
+            <option value= "male" selected="selected">Male</option>
             <option value = "female">Female</option>
             <option value = "other">Non-Binary/Other</option>
         </select>
         <label>Education:</label>
         <select [(ngModel)] = "education">
-            <option value="littlenone">No Formal Education</option>
+            <option value="littlenone" selected="selected">No Formal Education</option>
             <option value="highschool">HighSchool Degree</option>
             <option value="bachelors">Bachelors Degree</option>
             <option value="masters">Masters Degree</option>
@@ -37,14 +37,14 @@
         </select>
         <label>Employment:</label>
         <select [(ngModel)] = "employment">
-            <option value="unemployed">Unemployed</option>
+            <option value="unemployed" selected="selected">Unemployed</option>
             <option value="employed">Employed</option>
             <option value="parttime">Part-Time</option>
             <option value="entrepreneur">Self-Employed/Entrepreneur</option>
         </select>
         <label>Region:</label>
         <select [(ngModel)] = "region">
-            <option value="europe">Europe</option>
+            <option value="europe" selected="selected">Europe</option>
             <option value="eastasia">East Asia</option>
             <option value="middleeast">Middle East</option>
             <option value="africa">Africa</option>

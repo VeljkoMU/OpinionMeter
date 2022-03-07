@@ -10,7 +10,7 @@ import { UserDataManagerService } from 'src/app/services/user-data-manager.servi
 export class AddPostFormComponent implements OnInit {
 
   public postText:string = "";
-  public tag:string = "";
+  public tag:string = "general";
   public link:string = "";
   public done:boolean = false;
 

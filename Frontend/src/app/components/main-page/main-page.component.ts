@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Post } from 'src/app/models/post';
 import { PostServiceService } from 'src/app/services/post-service.service';
 import { UIService } from 'src/app/services/ui.service';
+import { getPostsByTagAction } from 'src/store/actions';
+import { State } from 'src/store/app-state';
+import { AppState } from 'src/store/reducers';
+import { selectLoadedPosts } from 'src/store/selectors';
 
 @Component({
   selector: 'app-main-page',
@@ -10,21 +15,20 @@ import { UIService } from 'src/app/services/ui.service';
 })
 export class MainPageComponent implements OnInit {
 
-  public posts: Array<Post>= [];
+  public posts: Array<Post> | undefined= [];
 
-  constructor(private postService: PostServiceService,
+  constructor(private store: Store<State>,
               private uiService: UIService) { }
 
   ngOnInit(): void {
-    this.postService.postsObserver.subscribe((data:any)=>{
-      this.posts = data;
-      console.log(this.posts);
+    this.store.select(selectLoadedPosts).subscribe((posts)=>{
+      this.posts=posts;
     });
-    this.postService.getPostsByTag("general");
+   this.store.dispatch(getPostsByTagAction({tag: "general"}));
   }
 
   public getByTag(tag:string){
-    this.postService.getPostsByTag(tag);
+    this.store.dispatch(getPostsByTagAction({tag}));
   }
 
   public myposts(){

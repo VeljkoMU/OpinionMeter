@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PostServiceService } from 'src/app/services/post-service.service';
 import { UIService } from 'src/app/services/ui.service';
 import { UserDataManagerService } from 'src/app/services/user-data-manager.service';
+import { getpostsByUserAction } from 'src/store/actions';
+import { State } from 'src/store/app-state';
+import { selectUserPosts } from 'src/store/selectors';
 
 @Component({
   selector: 'app-user-posts',
@@ -15,14 +19,15 @@ export class UserPostsComponent implements OnInit {
 
   constructor(private postService: PostServiceService,
               private userData: UserDataManagerService,
-              private uiService: UIService) { }
+              private uiService: UIService,
+              private store: Store<State>) { }
 
   ngOnInit(): void {
     this.user = this.userData.username;
-    this.postService.postsObserver.subscribe((data:any)=>{
+    this.store.select(selectUserPosts).subscribe((data:any)=>{
       this.posts = data;
     });
-    this.postService.getPostsByUser(this.user);
+    this.store.dispatch(getpostsByUserAction({user: this.user.toString()}))
   }
 
   public back(){

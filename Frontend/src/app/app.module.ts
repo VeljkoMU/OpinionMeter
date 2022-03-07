@@ -14,6 +14,10 @@ import { UserPostsComponent } from './components/user-posts/user-posts.component
 import { UserControlPostComponent } from './components/user-control-post/user-control-post.component';
 import { VotesMeterComponent } from './components/votes-meter/votes-meter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StoreModule } from '@ngrx/store';
+import { postsReducer } from 'src/store/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from 'src/store/effects';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    StoreModule.forRoot({appState: postsReducer}),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

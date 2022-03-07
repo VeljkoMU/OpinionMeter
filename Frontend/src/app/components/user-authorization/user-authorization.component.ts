@@ -14,10 +14,10 @@ export class UserAuthorizationComponent implements OnInit {
 
   public username: string = "";
   public pass: string = "";
-  public gender: string = "";
-  public region: string = "";
-  public education: string = "";
-  public employment: string ="";
+  public gender: string = "male";
+  public region: string = "europe";
+  public education: string = "littlenone";
+  public employment: string ="unemployed";
 
   constructor(private authServise: UserDataManagerService,
               private uiService: UIService) { }
