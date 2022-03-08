@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { postsReducer } from 'src/store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from 'src/store/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AppEffects } from 'src/store/effects';
     FormsModule,
     FontAwesomeModule,
     StoreModule.forRoot({appState: postsReducer}),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

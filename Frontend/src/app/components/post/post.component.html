@@ -4,35 +4,35 @@
     <div class="menu" (click)="changeView(true)">STATISTICS</div>
 </div>
 <div class="main-container" *ngIf="!statistics">
-    <div class="data">
+    <div class="data"   @change-view>
         <p class="user">{{this.post?.user}}</p>
         <p class="text">{{this.post?.text}}</p>
     </div>
-    <div>
+    <div   @change-view>
         <a href="{{this.post?.link}}">Soure Link</a>
     </div>
-    <div class="status">
-    <div class="vote g">
+    <div class="status"   @change-view>
+    <div class="vote g"   @change-view>
         <button *ngIf="notVoted" class="like" (click)="like()">I AGREE</button>
-    </div>
-    <div class="vote r">
+    </div> 
+    <div class="vote r"  @change-view>
         <button *ngIf="notVoted" class="dislike" (click)="dislike()">I DISAGREE</button>
     </div>
     </div>
-    <div class="bar">
+    <div class="bar"  @change-view>
         <div class="upvotes" [ngStyle]="{'width':(this.approvals/(this.approvals+this.dissapprovals))*100 + '%'}"></div>
         <div class="downvotes" [ngStyle]="{'width':(this.dissapprovals/(this.approvals + this.dissapprovals))*100 + '%'}"></div></div>
-    <div>
+    <div   @change-view>
         <app-comment *ngFor="let c of this.post?.comments" [comment]="c" (voteOnComment)="rateComment($event)"></app-comment>
     </div>
-    <div class="c">
+    <div class="c"   @change-view>
         comment:
         <textarea rows="4" cols="50" [(ngModel)]="this.localComment"></textarea>
         <button class="button" (click)="addComment()">Comment</button>
     </div>
 </div>
 
-<div class="main-container" *ngIf="statistics">
+<div class="main-container" *ngIf="statistics" @change-view>
     Predicted Audience Profiles
     <div class="stats">
 

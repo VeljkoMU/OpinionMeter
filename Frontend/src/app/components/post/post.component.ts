@@ -1,3 +1,4 @@
+import { animate, animation, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Comment } from 'src/app/models/comment';
 import { Post } from 'src/app/models/post';
@@ -8,7 +9,16 @@ import { UserAuthorizationComponent } from '../user-authorization/user-authoriza
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  animations:[
+    //state("void",style({opacity: 1})),
+    trigger("change-view", [
+      transition("void => *", [
+        style({fontSize: "small", opacity: 0}),
+        animate("300ms ease")
+      ])
+    ])
+  ]
 })
 export class PostComponent implements OnInit {
 
