@@ -27,7 +27,7 @@ export class UserPostsComponent implements OnInit {
     this.store.select(selectUserPosts).subscribe((data:any)=>{
       this.posts = data;
     });
-    this.store.dispatch(getpostsByUserAction({user: this.user.toString()}))
+    this.store.dispatch(getpostsByUserAction({user: this.user.toString()}));
   }
 
   public back(){

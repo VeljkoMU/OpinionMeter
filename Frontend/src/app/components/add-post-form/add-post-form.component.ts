@@ -27,6 +27,7 @@ export class AddPostFormComponent implements OnInit {
     this.postService.addPost(user, this.postText, this.link, this.tag).subscribe((res:any)=>{
       if(res.status){
         this.done = true;
+        setTimeout(()=>this.done = false, 5000);
       }
     });
   }
