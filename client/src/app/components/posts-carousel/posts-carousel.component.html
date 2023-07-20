@@ -1,0 +1,12 @@
+<div class="centered-column">
+    <div class="lable">
+        Popular Posts:
+    </div>
+<div class="container">
+    <div class = "test"></div>
+    <app-post *ngFor="let p of this.posts" [showIcons]="showIcons" [isUserSignedIn]="isUserSignedIn" [post]="p" [userControlMode]="true" [shouldUseElps]="p.text.length >= 150"></app-post>
+</div>
+<div class="see" (click)="seeMoreClicked()">
+    See more
+</div>
+</div>

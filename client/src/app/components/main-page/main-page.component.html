@@ -1,0 +1,38 @@
+
+<div class="container">
+    <header>
+        <div class="upper">
+            <div class="logo-div">
+            <img src="../../../assets/logo.png" class="logo-img">
+            <h1>Opinion-Meter</h1>
+        </div>
+            <button class="account-button" (click)="myposts()"> <fa-icon [icon]="personBooth"></fa-icon> {{this.accountNavigationString}}</button>
+        </div>
+        <div class="bottom nav-toggle" (click)="toggleMenu()">
+            Menu  <fa-icon [icon]="hamburgerIcon"></fa-icon>
+        </div>
+        <div class="bottom menu-bar" [ngClass]="{ 'show': isMenuOpen }">
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'general'}" (click)="getByTag('general')">GENERAL</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'politics'}" (click)="getByTag('politics')">POLITICS</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'hobbies'}" (click)="getByTag('hobbies')">HOBBIES</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'philosphy'}" (click)="getByTag('philosphy')">PHILOSPHY</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'personal'}" (click)="getByTag('personal')">PERSONAL</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == 'current_events'}" (click)="getByTag('current_events')">CURRENT EVENTS</div>
+            <div class="menu" [ngClass]="{'menu-selected' : this.currentTag == ''}" (click)="getMostEngagingPosts()">MOST ENGAIGING</div>
+        </div>
+    </header>
+    <app-add-post-form [visible]="addPostDialogVisible" (closeDialogEvent)="setAddPostDialogVisibility(false)"></app-add-post-form>
+    <app-posts-carousel *ngIf="this.currentTag === 'general'" [isUserSignedIn]="username != ''" [showIcons]="!addPostDialogVisible" (seeMoreEvent)="getMostEngagingPosts()"></app-posts-carousel>
+    <button *ngIf="username != ''" (click) = "setAddPostDialogVisibility(true)" class="dialogOpenButton button">
+        Create a post
+    </button>
+
+    <div class="post-list">
+        <app-page-controls></app-page-controls>
+        <app-post *ngFor="let p of this.posts" [isUserSignedIn]="username != ''" [post]="p" [userControlMode] = "false" [showIcons]="!addPostDialogVisible"></app-post>
+    </div>
+
+</div>
+
+<img class="background-image" [src]="this.backgroundImageUri">
+<div class="background-overlay"></div>

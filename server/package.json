@@ -1,0 +1,33 @@
+{
+  "name": "opinionmeter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeljkoMU/OpinionMeter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeljkoMU/OpinionMeter/issues"
+  },
+  "homepage": "https://github.com/VeljkoMU/OpinionMeter#readme",
+  "dependencies": {
+    "connect-mongo": "^4.3.1",
+    "connect-redis": "^6.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-cors": "^0.0.3",
+    "express-session": "^1.17.2",
+    "md5": "^2.3.0",
+    "mime": "^3.0.0",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.1.8",
+    "mongoose-paginate-v2": "^1.7.1",
+    "redis": "^3.1.2"
+  }
+}

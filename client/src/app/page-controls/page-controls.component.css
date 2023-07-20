@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.953);
+    font-size: 25px;
+}
+
+.icon {
+    color: rgba(255, 255, 255, 0.953);
+    padding: 10px;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: #B30000;
+}
+
+p {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+button {
+    background-color: none;
+    border: none;
+}

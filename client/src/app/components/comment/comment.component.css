@@ -1,0 +1,64 @@
+.container{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.383);
+    border-top: 1px solid rgba(255, 255, 255, 0.47);
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+p{
+    padding:8px;
+    word-wrap: break-word;
+    width: 400px;
+
+}
+
+.user{
+    color:#919191;
+    font-size: small;
+}
+
+.up{
+    color: green;
+}
+
+.up:hover{
+    background-color: green;
+    color: black;
+}
+
+.down{
+    color:r#B30000ed;
+}
+
+.down:hover{
+    background-color: #B30000;
+    color: black;
+}
+
+.button.down{
+    border: 1px solid #B30000;
+    padding: 5px;
+    font-size: medium;
+}
+
+.button.up{
+    border: 1px solid green;
+    padding: 5px;
+    font-size: medium;
+}
+.votes{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 80%;
+        border: 0px;
+    }
+
+    p {
+        width: 300px;
+    }
+}

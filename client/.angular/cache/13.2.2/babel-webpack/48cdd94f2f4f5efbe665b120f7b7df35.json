@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var OpinionStatus = /*#__PURE__*/(() => {\n  (function (OpinionStatus) {\n    OpinionStatus[OpinionStatus[\"isLiked\"] = 0] = \"isLiked\";\n    OpinionStatus[OpinionStatus[\"isDisliked\"] = 1] = \"isDisliked\";\n  })(OpinionStatus || (OpinionStatus = {}));\n\n  return OpinionStatus;\n})();","map":null,"metadata":{},"sourceType":"module"}

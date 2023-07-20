@@ -1,0 +1,5 @@
+<div class="container">
+    <fa-icon [ngStyle]="{'color': (pagingData?.hasPrevPage ? 'rgba(255, 255, 255, 0.953)' : 'rgba(255, 255, 255, 0.113)')}" (click)="navigatePrev()" class="icon" [icon]="faArrowLeft"></fa-icon>
+    <p>{{pagingData?.currentPage}}</p>
+    <fa-icon [ngStyle]="{'color': (pagingData?.hasNextPage ? 'rgba(255, 255, 255, 0.953)' : 'rgba(255, 255, 255, 0.113)')}" class="icon" [icon]="faArrowRight" (click)="navigateNext()"></fa-icon>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <header>
+        <h1>Opinion-Meter</h1>
+    </header>
+    <div class="contents-container">
+    <div class="user">
+       <p> Username: {{this.user?.username}} </p>
+       <p> Gender: {{this.user?.gender}} </p>
+       <p> Employment: {{this.user?.employment}} </p>
+       <p> Education: {{this.user?.education}} </p>
+       <p> Region: {{this.user?.region}} </p>
+       <button class="logout-btn" (click)="logout()"> Logout </button>
+    </div>
+    <div class="posts">
+        <p class = "posts-title">{{this.postsText}}: </p>
+        <app-user-control-post *ngFor="let p of this.posts" [post]="p"></app-user-control-post>
+    </div>
+</div>
+</div>

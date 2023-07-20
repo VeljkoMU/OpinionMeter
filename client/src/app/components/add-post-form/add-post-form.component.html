@@ -1,0 +1,21 @@
+<div class="dialogWrapper" *ngIf="visible" (click) = "dismiss()">
+<div class="container" *ngIf="!done" (click) ="$event.stopPropagation()">
+    Share you opinion:
+    <textarea rows="4" cols="50" [(ngModel)]="this.postText"></textarea>
+    <div>
+    Select a tag:
+    <select [(ngModel)]="this.tag">
+        <option value="general">general</option>
+        <option value="politics">politics</option>
+        <option value="philosphy">philosphy</option>
+        <option value="personal">personal</option>
+        <option value="hobbies">hobbies</option>
+        <option value="current_events">current events</option>
+    </select>
+    </div>
+    <button class="button" (click)="add()">Post</button>
+</div>
+<div *ngIf="done" class="done">
+    Thank you for sharing!
+</div>
+</div>

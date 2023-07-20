@@ -1,0 +1,97 @@
+
+<div class="subheader">
+    <div class="menu" (click)="changeView(false)" [ngClass]="{'selectedItem': !statistics}">POST</div>
+    <div *ngIf="!userControlMode" class="menu" (click)="changeView(true)" [ngClass]="{'selectedItem': statistics}">STATISTICS</div>
+</div>
+<div class="main-container" *ngIf="!statistics">
+    <div class="data"   @change-view>
+        <p class="user">{{this.post?.user}}</p>
+        <p class="text">{{this.postText}}</p>
+    </div>
+    <div *ngIf="!isUserSignedIn" class="small-text"> Create an account to rate, comment and post </div>
+    <div class="status" *ngIf="notVoted && isUserSignedIn" @change-view>
+    <div class="vote g"   @change-view>
+        <button *ngIf="notVoted" class="like" (click)="like()">
+            <fa-icon *ngIf="showIcons" [icon]="faThumbUp"></fa-icon>
+        </button>
+    </div> 
+    <div class="vote r"  @change-view>
+        <button *ngIf="notVoted" class="dislike" (click)="dislike()">
+            <fa-icon *ngIf="showIcons" [icon]="faThumbsDown"></fa-icon>
+        </button>
+    </div>
+    </div>
+    <div class="bar"  @change-view>
+        <div class="upvotes" [ngStyle]="{'width':(this.approvals/(this.approvals+this.dissapprovals))*100 + '%'}"></div>
+        <div class="downvotes" [ngStyle]="{'width':(this.dissapprovals/(this.approvals + this.dissapprovals))*100 + '%'}"></div>
+    </div>
+    <div *ngIf='!userControlMode && isUserSignedIn'  @change-view>
+        <div class="c" *ngIf='!userControlMode'  @change-view>
+            <textarea rows="2" cols="30" [(ngModel)]="this.localComment" placeholder="Add your comment"></textarea>
+            <button class="button" (click)="addComment()">Comment</button>
+        </div>
+        <app-comment *ngFor="let c of this.post?.comments" [comment]="c" (voteOnComment)="rateComment($event)"></app-comment>
+    </div>
+</div>
+
+<div class="main-container" *ngIf="statistics" @change-view>
+    Predicted Audience Profiles
+    <div class="stats">
+
+        <div>
+            Most Approved By: {{mostApporvedProfile}}
+        </div>
+        <div>
+            Most Disagreed On By: {{mostDisagreedProfile}}
+        </div>
+    </div>
+
+    <div>
+        By Gender
+        <div class="stats">
+            Male
+            <app-votes-meter [positive]="post!.approvals['male']" [negative]="post!.disapprovals['male']"></app-votes-meter>
+            Female
+             <app-votes-meter [positive]="post!.approvals['female']" [negative]="post!.disapprovals['female']"></app-votes-meter>
+        </div>
+        By Education
+        <div class="stats"> 
+            No Formal Education
+            <app-votes-meter [positive]="post!.approvals['littlenone']" [negative]="post!.disapprovals['littlenone']"></app-votes-meter>
+            Highschool
+            <app-votes-meter [positive]="post!.approvals['highschool']" [negative]="post!.disapprovals['highschool']"></app-votes-meter>
+            Bachelor's Degree
+            <app-votes-meter [positive]="post!.approvals['bachelors']" [negative]="post!.disapprovals['bachelors']"></app-votes-meter>
+            Master's Degree
+            <app-votes-meter [positive]="post!.approvals['masters']" [negative]="post!.disapprovals['masters']"></app-votes-meter>
+            PhD's
+            <app-votes-meter [positive]="post!.approvals['phd']" [negative]="post!.disapprovals['phd']"></app-votes-meter>
+        </div>
+        By Employment
+        <div class="stats">
+            Unemployed
+            <app-votes-meter [positive]="post!.approvals['unemployed']" [negative]="post!.disapprovals['unemployed']"></app-votes-meter>
+            Employed
+            <app-votes-meter [positive]="post!.approvals['employed']" [negative]="post!.disapprovals['employed']"></app-votes-meter>
+            Part Time Employed
+            <app-votes-meter [positive]="post!.approvals['parttime']" [negative]="post!.disapprovals['parttime']"></app-votes-meter>
+            Self-Employed/Entrepreneur
+            <app-votes-meter [positive]="post!.approvals['entrepreneur']" [negative]="post!.disapprovals['entrepreneur']"></app-votes-meter>
+        </div>
+        By region
+        <div class="stats">
+            Europe
+            <app-votes-meter [positive]="post!.approvals['europe']" [negative]="post!.disapprovals['europe']"></app-votes-meter>
+            Africa
+            <app-votes-meter [positive]="post!.approvals['africa']" [negative]="post!.disapprovals['africa']"></app-votes-meter>
+            East Asia
+            <app-votes-meter [positive]="post!.approvals['eastasia']" [negative]="post!.disapprovals['eastasia']"></app-votes-meter>
+            Middle East
+            <app-votes-meter [positive]="post!.approvals['middleeast']" [negative]="post!.disapprovals['middleeast']"></app-votes-meter>
+            North America
+            <app-votes-meter [positive]="post!.approvals['namerica']" [negative]="post!.disapprovals['namerica']"></app-votes-meter>
+            Latin America
+            <app-votes-meter [positive]="post!.approvals['samerica']" [negative]="post!.disapprovals['samerica']"></app-votes-meter>
+        </div>
+    </div>
+</div>
